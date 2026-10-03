@@ -1,0 +1,768 @@
+
+/* =========================================================
+   DEVQUEUE - GLOBAL APPLICATION STYLES
+   ========================================================= */
+
+/* =========================================================
+   1. MAIN APPLICATION CONTAINER
+   ========================================================= */
+
+/* Style the main application wrapper. */
+.app {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Ensure the main page content can fill available space. */
+main {
+  flex: 1;
+}
+
+/* Remove default link underline and inherit the intended styling. */
+a {
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   2. NAVIGATION BAR
+   ========================================================= */
+
+/* Style the main navigation bar. */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 8%;
+
+  background-color: #ffffff;
+
+  border-bottom: 1px solid #e2e8f0;
+
+  position: relative;
+  z-index: 10;
+}
+
+
+/* Group the navigation links. */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Style individual navigation links. */
+.nav-links a {
+  color: #475569;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Add a hover effect to navigation links. */
+.nav-links a:hover {
+  color: #2563eb;
+  transform: translateY(-1px);
+}
+
+/* Style the login button in the navigation bar. */
+.login-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 22px;
+
+  border-radius: 6px;
+
+  background-color: #2563eb;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Change the login button when hovered. */
+.login-button:hover {
+  background-color: #1d4ed8;
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   3. HOME PAGE - HERO SECTION
+   ========================================================= */
+
+/* Style the main hero section. */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 380px;
+
+  padding: 70px 8%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff 0%,
+      #f8fafc 50%,
+      #ffffff 100%
+    );
+
+  text-align: center;
+}
+
+/* Style the hero heading. */
+.hero h1 {
+  max-width: 800px;
+
+  margin: 0 auto 20px;
+
+  color: #0f2747;
+
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+/* Style the hero description. */
+.hero p {
+  max-width: 650px;
+
+  margin: 0 auto 30px;
+
+  color: #64748b;
+
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* Style the main call-to-action button. */
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 30px;
+
+  border: none;
+  border-radius: 7px;
+
+  background-color: #2563eb;
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Add a hover effect to the hero button. */
+.hero-button:hover {
+  background-color: #1d4ed8;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+}
+
+
+/* =========================================================
+   4. FEATURES SECTION
+   ========================================================= */
+
+/* Style the features section. */
+.features {
+  padding: 60px 8%;
+
+  background-color: #ffffff;
+
+  text-align: center;
+}
+
+/* Style the features section heading. */
+.features h2 {
+  margin-bottom: 35px;
+
+  color: #0f2747;
+
+  font-size: 30px;
+  font-weight: 800;
+}
+
+/* Arrange the feature cards in a grid. */
+.feature-container {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+
+  max-width: 1100px;
+
+  margin: 0 auto;
+}
+
+/* Style each feature card. */
+.feature-card {
+  padding: 30px 25px;
+
+  background-color: #ffffff;
+
+  border: 1px solid #dbeafe;
+  border-radius: 10px;
+
+  text-align: left;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Add a hover effect to feature cards. */
+.feature-card:hover {
+  border-color: #93c5fd;
+
+  transform: translateY(-5px);
+
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+/* Style feature card headings. */
+.feature-card h3 {
+  margin-bottom: 12px;
+
+  color: #2563eb;
+
+  font-size: 20px;
+}
+
+/* Style feature card descriptions. */
+.feature-card p {
+  color: #64748b;
+
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   5. FOOTER
+   ========================================================= */
+
+/* Style the application footer. */
+.footer {
+  padding: 25px 8%;
+
+  background-color: #0f2747;
+  color: #ffffff;
+
+  text-align: center;
+}
+
+/* Style footer text. */
+.footer p {
+  margin: 0;
+
+  color: #cbd5e1;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   6. AUTHENTICATION PAGE CONTAINER
+   ========================================================= */
+
+/* Style the container used by login, registration,
+   and forgot-password pages. */
+.form-page {
+  width: 90%;
+  max-width: 450px;
+
+  margin: 60px auto;
+  padding: 35px;
+
+  background-color: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+
+  text-align: center;
+}
+
+/* Style the authentication page heading. */
+.form-page h1 {
+  margin-bottom: 12px;
+
+  color: #0f2747;
+
+  font-size: 28px;
+  font-weight: 800;
+
+  line-height: 1.3;
+}
+
+/* Style the authentication page description. */
+.form-page > p {
+  color: #64748b;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   7. AUTHENTICATION FORMS
+   ========================================================= */
+
+/* Arrange form fields vertically. */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  margin-top: 25px;
+
+  text-align: left;
+}
+
+/* Style form labels. */
+.auth-form label {
+  margin-top: 8px;
+
+  color: #1e293b;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Style form input fields. */
+.auth-form input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 12px 14px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+
+  background-color: #ffffff;
+  color: #0f172a;
+
+  font-family: inherit;
+  font-size: 15px;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Highlight an input when it is focused. */
+.auth-form input:focus {
+  outline: none;
+
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+/* Style the placeholder text. */
+.auth-form input::placeholder {
+  color: #94a3b8;
+}
+
+/* Add a visual indication for invalid browser-validated inputs. */
+.auth-form input:invalid:not(:placeholder-shown) {
+  border-color: #f87171;
+}
+
+/* Add spacing above the main form button. */
+.auth-form .primary-button {
+  margin-top: 15px;
+}
+
+
+/* =========================================================
+   8. PRIMARY AUTHENTICATION BUTTON
+   ========================================================= */
+
+/* Style login, registration, and reset buttons. */
+.primary-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  width: 100%;
+
+  padding: 12px 18px;
+
+  border: none;
+  border-radius: 6px;
+
+  background-color: #2563eb;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Change the button appearance when hovered. */
+.primary-button:hover:not(:disabled) {
+  background-color: #1d4ed8;
+
+  transform: translateY(-1px);
+}
+
+/* Show a disabled appearance during loading. */
+.primary-button:disabled {
+  background-color: #93b4f4;
+
+  cursor: not-allowed;
+
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   9. LOADING SPINNER
+   ========================================================= */
+
+/* Create the circular loading spinner. */
+.spinner {
+  display: inline-block;
+
+  width: 16px;
+  height: 16px;
+
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top: 3px solid #ffffff;
+
+  border-radius: 50%;
+
+  animation: spin 0.8s linear infinite;
+}
+
+/* Rotate the spinner continuously. */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   10. AUTHENTICATION LINKS
+   ========================================================= */
+
+/* Style the forgot-password link. */
+.forgot-password {
+  align-self: flex-end;
+
+  margin-top: 2px;
+
+  color: #2563eb;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition: color 0.3s ease;
+}
+
+/* Add a hover effect to the forgot-password link. */
+.forgot-password:hover {
+  color: #1d4ed8;
+
+  text-decoration: underline;
+}
+
+/* Style the paragraph containing an authentication link. */
+.auth-link {
+  margin-top: 20px;
+
+  color: #64748b;
+
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Style links inside the authentication paragraph. */
+.auth-link a {
+  color: #2563eb;
+
+  font-weight: 600;
+
+  transition: color 0.3s ease;
+}
+
+/* Change the authentication link color on hover. */
+.auth-link a:hover {
+  color: #1d4ed8;
+
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   11. FORM RESPONSE MESSAGES
+   ========================================================= */
+
+/* Style the message displayed after form submission. */
+.success-message {
+  margin-top: 20px;
+
+  padding: 12px;
+
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+
+  background-color: #f0fdf4;
+  color: #15803d;
+
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* Style error-like validation messages.
+   This class can be used later for backend errors. */
+.error-message {
+  margin-top: 20px;
+
+  padding: 12px;
+
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+
+  background-color: #fef2f2;
+  color: #b91c1c;
+
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+
+/* =========================================================
+   12. RESPONSIVE DESIGN - TABLETS
+   ========================================================= */
+
+/* Adjust the layout for medium-sized screens. */
+@media (max-width: 900px) {
+  /* Reduce navigation spacing. */
+  .navbar {
+    padding: 18px 5%;
+  }
+
+  /* Reduce the gap between navigation links. */
+  .nav-links {
+    gap: 18px;
+  }
+
+  /* Change the feature grid to two columns. */
+  .feature-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Reduce hero padding. */
+  .hero {
+    padding: 60px 5%;
+  }
+
+  /* Reduce section padding. */
+  .features {
+    padding: 50px 5%;
+  }
+}
+
+
+
+
+/* =========================================================
+   13. RESPONSIVE DESIGN - MOBILE PHONES
+   ========================================================= */
+
+/* Adjust the layout for small screens. */
+@media (max-width: 600px) {
+  /* Allow the navigation to wrap on smaller screens. */
+  .navbar {
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    padding: 16px 5%;
+  }
+
+  /* Make the navigation links fit smaller screens. */
+  .nav-links {
+    order: 3;
+
+    width: 100%;
+
+    justify-content: center;
+
+    gap: 18px;
+  }
+
+  /* Reduce the login button padding. */
+  .login-button {
+    padding: 9px 16px;
+  }
+
+  /* Reduce the hero section height and padding. */
+  .hero {
+    min-height: 300px;
+
+    padding: 50px 5%;
+  }
+
+  /* Reduce the hero heading size. */
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  /* Reduce the hero paragraph size. */
+  .hero p {
+    font-size: 15px;
+  }
+
+  /* Stack feature cards vertically. */
+  .feature-container {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reduce feature section spacing. */
+  .features {
+    padding: 45px 5%;
+  }
+
+  /* Reduce the features heading size. */
+  .features h2 {
+    font-size: 26px;
+  }
+
+  /* Make authentication forms fit mobile screens. */
+  .form-page {
+    width: calc(100% - 40px);
+
+    box-sizing: border-box;
+
+    margin: 35px auto;
+    padding: 25px 20px;
+  }
+
+  /* Reduce authentication heading size. */
+  .form-page h1 {
+    font-size: 24px;
+  }
+
+  /* Reduce footer spacing. */
+  .footer {
+    padding: 22px 5%;
+  }
+}
+
+
+/* =========================================================
+   DEVQUEUE LOGO
+   ========================================================= */
+
+/* Group the logo icon and brand name together. */
+.devqueue-logo {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+/* Prevent the logo icon from shrinking. */
+.logo-icon {
+  display: block;
+
+  flex-shrink: 0;
+}
+
+/* Style the DevQueue brand name. */
+.logo-text {
+  font-size: 25px;
+
+  font-weight: 800;
+
+  letter-spacing: -0.8px;
+
+  line-height: 1;
+}
+
+/* Remove unwanted styling from the logo link. */
+.logo-link {
+  display: inline-flex;
+
+  align-items: center;
+
+  text-decoration: none;
+}
+
+/* Add a subtle logo hover effect. */
+.logo-link:hover {
+  opacity: 0.9;
+}
+
+/* Make the logo slightly smaller on mobile devices. */
+@media (max-width: 600px) {
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .logo-text {
+    font-size: 22px;
+  }
+}

@@ -1,0 +1,1389 @@
+/* =========================================================
+   DEVQUEUE DASHBOARD STYLES
+   ========================================================= */
+
+/* Main dashboard color variables. */
+:root {
+  --dashboard-navy: #0b1b36;
+  --dashboard-navy-light: #142b50;
+  --dashboard-blue: #2563eb;
+  --dashboard-blue-light: #eff6ff;
+  --dashboard-background: #f5f7fb;
+  --dashboard-border: #e2e8f0;
+  --dashboard-text: #1e293b;
+  --dashboard-muted: #64748b;
+  --dashboard-white: #ffffff;
+}
+
+/* Prevent padding and borders from increasing element widths. */
+.dashboard-layout,
+.dashboard-layout * {
+  box-sizing: border-box;
+}
+
+/* Prevent accidental horizontal scrolling. */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Main dashboard layout. */
+.dashboard-layout {
+  display: flex;
+
+  min-height: 100vh;
+  width: 100%;
+
+  background-color: var(--dashboard-background);
+
+  color: var(--dashboard-text);
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+/*
+ * Desktop sidebar.
+ *
+ * The sidebar stays fixed while the dashboard content
+ * scrolls independently.
+ */
+.dashboard-sidebar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 260px;
+  height: 100vh;
+
+  padding: 0 20px 20px;
+
+  background-color: var(--dashboard-navy);
+  color: #ffffff;
+
+  z-index: 1000;
+
+  /*
+   * The sidebar itself should normally not scroll.
+   * The content area is responsible for scrolling.
+   */
+  overflow: hidden;
+}
+
+
+/* Sidebar logo container. */
+.sidebar-logo {
+  margin-top: 30px;
+
+  padding: 0 0 35px;
+
+  flex-shrink: 0;
+}
+
+
+/* Make the logo text white in the sidebar. */
+.sidebar-logo .logo-text {
+  color: #ffffff !important;
+}
+
+
+/* Sidebar navigation container. */
+.sidebar-navigation {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+
+  flex: 1;
+}
+
+
+/* Individual sidebar links. */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  min-height: 44px;
+
+  padding: 12px 14px;
+
+  border-radius: 6px;
+
+  color: #cbd5e1;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  flex-shrink: 0;
+}
+
+
+/* Sidebar icons. */
+.sidebar-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  min-width: 20px;
+
+  color: #cbd5e1;
+
+  font-size: 19px;
+}
+
+
+/* Highlight the active sidebar link. */
+.sidebar-link.active {
+  background-color: var(--dashboard-blue);
+
+  color: #ffffff;
+}
+
+
+/* Highlight sidebar links on hover. */
+.sidebar-link:hover {
+  background-color: var(--dashboard-navy-light);
+
+  color: #ffffff;
+}
+
+
+/* Keep the active link blue when hovered. */
+.sidebar-link.active:hover {
+  background-color: var(--dashboard-blue);
+}
+
+
+/* Make the icon white when the link is active. */
+.sidebar-link.active .sidebar-icon {
+  color: #ffffff;
+}
+
+
+/* Sidebar notification badge. */
+.notification-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 20px;
+  height: 20px;
+
+  margin-left: auto;
+
+  border-radius: 50%;
+
+  background-color: #ef4444;
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  flex-shrink: 0;
+}
+
+
+/* Sidebar profile section. */
+.sidebar-profile {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: auto;
+  padding: 20px 0 0;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  flex-shrink: 0;
+}
+
+
+/* Circular user avatar. */
+.profile-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  background-color: #2563eb;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  flex-shrink: 0;
+}
+
+
+/* Sidebar user details. */
+.profile-details {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  flex: 1;
+}
+
+
+.profile-details strong {
+  color: #ffffff;
+
+  font-size: 12px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.profile-details span {
+  margin-top: 3px;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+}
+
+
+/* Sidebar profile arrow. */
+.profile-arrow {
+  margin-left: auto;
+
+  color: #cbd5e1;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   MAIN DASHBOARD AREA
+   ========================================================= */
+
+/* Main dashboard content wrapper. */
+.dashboard-main {
+  min-width: 0;
+
+  flex: 1;
+
+  margin-left: 260px;
+
+  width: calc(100% - 260px);
+
+  min-height: 100vh;
+}
+
+
+/* Top dashboard header. */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 70px;
+
+  padding: 14px 28px;
+
+  background-color: var(--dashboard-white);
+
+  border-bottom: 1px solid var(--dashboard-border);
+}
+
+
+/* Search container. */
+.dashboard-search {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  width: min(100%, 360px);
+
+  padding: 0 12px;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+
+  background-color: #f8fafc;
+}
+
+
+/* Search icon. */
+.dashboard-search > span {
+  color: #64748b;
+
+  font-size: 20px;
+
+  flex-shrink: 0;
+}
+
+
+/* Search input. */
+.dashboard-search input {
+  width: 100%;
+  min-width: 0;
+
+  padding: 11px 0;
+
+  border: none;
+  outline: none;
+
+  background-color: transparent;
+  color: var(--dashboard-text);
+
+  font-family: inherit;
+  font-size: 12px;
+}
+
+
+/* Header actions. */
+.header-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+}
+
+
+/* Notification button. */
+.notification-button {
+  position: relative;
+
+  padding: 6px;
+
+  border: none;
+
+  background-color: transparent;
+  color: #475569;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+
+/* Small notification indicator. */
+.notification-dot {
+  position: absolute;
+
+  top: 4px;
+  right: 3px;
+
+  width: 7px;
+  height: 7px;
+
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+
+  background-color: #ef4444;
+}
+
+
+/* Header user details. */
+.header-user {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+/* Header user information. */
+.header-user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.header-user-details strong {
+  color: #334155;
+
+  font-size: 12px;
+}
+
+
+.header-user-details span {
+  margin-top: 2px;
+
+  color: #64748b;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   DASHBOARD CONTENT
+   ========================================================= */
+
+/* Main dashboard content padding. */
+.dashboard-content {
+  padding: 28px;
+}
+
+
+/* Welcome section. */
+.dashboard-welcome {
+  margin-bottom: 24px;
+}
+
+
+/* Welcome heading. */
+.dashboard-welcome h1 {
+  margin: 0 0 6px;
+
+  color: #0f2747;
+
+  font-size: 26px;
+  font-weight: 800;
+}
+
+
+/* Welcome description. */
+.dashboard-welcome p {
+  margin: 0;
+
+  color: var(--dashboard-muted);
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   STATISTICS CARDS
+   ========================================================= */
+
+/* Statistics card grid. */
+.statistics-grid {
+  display: grid;
+
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin-bottom: 24px;
+}
+
+
+/* Individual statistics card. */
+.stat-card {
+  min-width: 0;
+
+  padding: 18px;
+
+  border: 1px solid var(--dashboard-border);
+  border-radius: 7px;
+
+  background-color: var(--dashboard-white);
+
+  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.02);
+}
+
+
+/* Top row of each statistic card. */
+.stat-card-top {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+
+/* Statistic icon. */
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  background-color: var(--dashboard-blue-light);
+  color: var(--dashboard-blue);
+
+  font-size: 20px;
+  font-weight: 700;
+
+  flex-shrink: 0;
+}
+
+
+/* Statistic title. */
+.stat-title {
+  color: #64748b;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+/* Statistic value. */
+.stat-card h2 {
+  margin: 13px 0 7px;
+
+  color: #0f2747;
+
+  font-size: 26px;
+  font-weight: 800;
+}
+
+
+/* Statistic change text. */
+.stat-card p {
+  margin: 0;
+
+  color: #10b981;
+
+  font-size: 10px;
+}
+
+
+/* Overdue statistic styling. */
+.stat-card.overdue .stat-icon {
+  background-color: #fef2f2;
+
+  color: #ef4444;
+}
+
+
+.stat-card.overdue p {
+  color: #ef4444;
+}
+
+
+/* Completed statistic styling. */
+.stat-card.completed .stat-icon {
+  background-color: #ecfdf5;
+
+  color: #10b981;
+}
+
+
+/* =========================================================
+   DASHBOARD PANELS
+   ========================================================= */
+
+/* Two-column dashboard section. */
+.dashboard-columns {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.8fr)
+    minmax(280px, 1fr);
+
+  gap: 20px;
+
+  margin-bottom: 20px;
+}
+
+
+/* Shared panel styling. */
+.dashboard-panel {
+  min-width: 0;
+
+  padding: 20px;
+
+  border: 1px solid var(--dashboard-border);
+  border-radius: 7px;
+
+  background-color: var(--dashboard-white);
+}
+
+
+/* Panel heading. */
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 18px;
+}
+
+
+/* Panel heading title. */
+.panel-heading h2 {
+  margin: 0;
+
+  color: #1e293b;
+
+  font-size: 15px;
+  font-weight: 800;
+}
+
+
+/* Panel heading link. */
+.panel-heading a {
+  color: #2563eb;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+
+.panel-heading a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   RECENT TASKS TABLE
+   ========================================================= */
+
+/* Allow the table to scroll horizontally on small screens. */
+.tasks-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+
+/* Recent tasks table. */
+.tasks-table {
+  width: 100%;
+  min-width: 600px;
+
+  border-collapse: collapse;
+
+  white-space: nowrap;
+
+  font-size: 11px;
+}
+
+
+/* Table header. */
+.tasks-table th {
+  padding: 12px 8px;
+
+  background-color: #f8fafc;
+
+  color: #64748b;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  text-align: left;
+}
+
+
+/* Table cells. */
+.tasks-table td {
+  padding: 14px 8px;
+
+  border-bottom: 1px solid #f1f5f9;
+
+  color: #64748b;
+}
+
+
+/* Remove the bottom border from the last row. */
+.tasks-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* Task title styling. */
+.task-title {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  color: #475569;
+
+  font-weight: 600;
+}
+
+
+/* Colored dot beside task title. */
+.task-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background-color: #2563eb;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   STATUS AND PRIORITY BADGES
+   ========================================================= */
+
+/* Shared status badge styling. */
+.status-badge,
+.priority-badge {
+  display: inline-block;
+
+  padding: 5px 9px;
+
+  border-radius: 12px;
+
+  font-size: 9px;
+  font-weight: 700;
+}
+
+
+/* Status badge colors. */
+.status-badge.in-progress {
+  background-color: #dbeafe;
+
+  color: #2563eb;
+}
+
+
+.status-badge.todo {
+  background-color: #e2e8f0;
+
+  color: #475569;
+}
+
+
+.status-badge.done {
+  background-color: #d1fae5;
+
+  color: #059669;
+}
+
+
+.status-badge.in-review {
+  background-color: #ede9fe;
+
+  color: #7c3aed;
+}
+
+
+/* Priority badge colors. */
+.priority-badge.high {
+  background-color: #ffe4e6;
+
+  color: #e11d48;
+}
+
+
+.priority-badge.medium {
+  background-color: #fef3c7;
+
+  color: #d97706;
+}
+
+
+.priority-badge.low {
+  background-color: #d1fae5;
+
+  color: #059669;
+}
+
+
+/* =========================================================
+   TASK STATUS OVERVIEW
+   ========================================================= */
+
+/* Align chart and legend. */
+.status-overview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 25px;
+
+  min-height: 190px;
+}
+
+
+/* Decorative circular chart. */
+.status-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 145px;
+  height: 145px;
+
+  border-radius: 50%;
+
+  background: conic-gradient(
+    #2563eb 0deg 120deg,
+    #f59e0b 120deg 190deg,
+    #8b5cf6 190deg 230deg,
+    #10b981 230deg 360deg
+  );
+
+  flex-shrink: 0;
+}
+
+
+/* Inner circle of the chart. */
+.chart-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 102px;
+  height: 102px;
+
+  border-radius: 50%;
+
+  background-color: #ffffff;
+}
+
+
+/* Chart total. */
+.chart-center strong {
+  color: #1e293b;
+
+  font-size: 23px;
+  font-weight: 800;
+}
+
+
+/* Chart label. */
+.chart-center span {
+  margin-top: 4px;
+
+  color: #64748b;
+
+  font-size: 9px;
+}
+
+
+/* Status legend. */
+.status-legend {
+  flex: 1;
+
+  min-width: 0;
+}
+
+
+/* Legend row. */
+.status-legend p {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin: 12px 0;
+
+  color: #64748b;
+
+  font-size: 11px;
+}
+
+
+/* Push legend values to the right. */
+.status-legend strong {
+  margin-left: auto;
+
+  color: #334155;
+}
+
+
+/* Legend colored dots. */
+.legend-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  flex-shrink: 0;
+}
+
+
+.legend-dot.todo {
+  background-color: #2563eb;
+}
+
+
+.legend-dot.in-progress {
+  background-color: #3b82f6;
+}
+
+
+.legend-dot.review {
+  background-color: #8b5cf6;
+}
+
+
+.legend-dot.done {
+  background-color: #10b981;
+}
+
+
+/* =========================================================
+   PROJECTS LIST
+   ========================================================= */
+
+/* Projects panel spacing. */
+.projects-panel {
+  margin-bottom: 25px;
+}
+
+
+/* Project list container. */
+.projects-list {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Individual project row. */
+.project-list-item {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 13px 0;
+
+  border-bottom: 1px solid #f1f5f9;
+}
+
+
+/* Remove the border from the last project. */
+.project-list-item:last-child {
+  border-bottom: none;
+}
+
+
+/* Project icon. */
+.project-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  background-color: #eff6ff;
+
+  color: #2563eb;
+
+  font-size: 18px;
+
+  flex-shrink: 0;
+}
+
+
+/* Project details. */
+.project-details {
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+
+  flex: 1;
+}
+
+
+/* Project name. */
+.project-details strong {
+  color: #334155;
+
+  font-size: 12px;
+}
+
+
+/* Project description. */
+.project-details span {
+  margin-top: 4px;
+
+  color: #94a3b8;
+
+  font-size: 10px;
+}
+
+
+/* Number of project tasks. */
+.project-task-count {
+  padding: 5px 10px;
+
+  border-radius: 12px;
+
+  background-color: #eff6ff;
+
+  color: #2563eb;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+
+/* Project arrow. */
+.project-arrow {
+  color: #94a3b8;
+
+  font-size: 20px;
+
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   RESPONSIVE DASHBOARD DESIGN
+   ========================================================= */
+
+
+/* The hamburger button and backdrop are hidden on desktop. */
+.mobile-menu-button {
+  display: none;
+}
+
+.sidebar-backdrop {
+  display: none;
+}
+
+
+/* ---------------------------------------------------------
+   LARGE TABLETS / SMALL DESKTOPS (1200px and below)
+   --------------------------------------------------------- */
+@media (max-width: 1200px) {
+  /* Three columns for statistics. */
+  .statistics-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Stack the task and overview panels. */
+  .dashboard-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   TABLET (900px and below)
+   --------------------------------------------------------- */
+@media (max-width: 900px) {
+  /* Narrower sidebar. */
+  .dashboard-sidebar {
+    width: 210px;
+  }
+
+  /* Content margin must match the sidebar width. */
+  .dashboard-main {
+    margin-left: 210px;
+    width: calc(100% - 210px);
+  }
+
+  .dashboard-content {
+    padding: 20px;
+  }
+
+  /* Two columns for statistics. */
+  .statistics-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .status-overview {
+    justify-content: flex-start;
+  }
+
+  .dashboard-header {
+    padding: 14px 20px;
+  }
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE (600px and below)
+   --------------------------------------------------------- */
+@media (max-width: 600px) {
+
+  /* ----- PAGE LAYOUT ----- */
+
+  /* Normal full-width page (the sidebar is now a drawer). */
+  .dashboard-layout {
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+  }
+
+  /* Content uses the full screen width. */
+  .dashboard-main {
+    width: 100%;
+    margin-left: 0;
+    min-height: 100vh;
+  }
+
+
+  /* ----- SIDEBAR DRAWER (LEFT SIDE) ----- */
+
+  .dashboard-sidebar {
+    position: fixed;
+
+    /* Attach the drawer to the LEFT edge. */
+    top: 0;
+    left: 0;
+    right: auto;
+
+    width: 260px;
+    max-width: 80vw;
+    height: 100vh;
+    margin: 0;
+    padding: 20px 15px;
+
+    /* Start hidden, just outside the LEFT edge. */
+    transform: translateX(-100%);
+
+    /* Smooth slide animation. */
+    transition: transform 0.3s ease;
+
+    /* Above the backdrop (1500), below the button (2500). */
+    z-index: 2000;
+
+    /* Let the drawer scroll if the screen is short. */
+    overflow-y: auto;
+  }
+
+  /* Added by Sidebar.jsx when the drawer is open: slide it in. */
+  .dashboard-sidebar.sidebar-mobile-open {
+    transform: translateX(0);
+  }
+
+  /* Extra left space so the logo doesn't sit under the button. */
+  .sidebar-logo {
+    margin-top: 5px;
+    padding: 0 5px 25px 52px;
+  }
+
+  /* Vertical navigation list. */
+  .sidebar-navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .sidebar-link {
+    min-height: 44px;
+    padding: 11px 12px;
+    font-size: 13px;
+  }
+
+  /* Profile stays at the bottom of the drawer. */
+  .sidebar-profile {
+    display: flex;
+    margin-top: auto;
+    padding: 18px 5px 0;
+  }
+
+
+  /* ----- BACKDROP ----- */
+
+  /* Dark overlay behind the drawer. */
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(15, 23, 42, 0.55);
+    z-index: 1500;
+  }
+
+
+  /* ----- HAMBURGER BUTTON (TOP LEFT) ----- */
+
+  .mobile-menu-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+    /* Fixed to the top LEFT corner of the screen. */
+    position: fixed;
+    top: 12px;
+    left: 12px;
+
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    border-radius: 10px;
+    background-color: var(--dashboard-navy);
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25);
+    cursor: pointer;
+
+    /* Always on top of everything. */
+    z-index: 2500;
+
+    transition: transform 0.2s ease;
+  }
+
+  /* The three hamburger lines. */
+  .mobile-menu-button span {
+    display: block;
+    width: 19px;
+    height: 2px;
+    border-radius: 2px;
+    background-color: #ffffff;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
+  }
+
+  /* Small press effect. */
+  .mobile-menu-button:active {
+    transform: scale(0.94);
+  }
+
+  /* When open, turn the hamburger into an X. */
+  .mobile-menu-button.menu-button-open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .mobile-menu-button.menu-button-open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-button.menu-button-open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+
+  /* ----- HEADER ----- */
+
+  .dashboard-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    min-height: auto;
+    padding: 15px;
+  }
+
+  /* Search takes a full row under the top row. */
+  .dashboard-search {
+    order: 2;
+    width: 100%;
+    max-width: none;
+  }
+
+  /* Header actions stay on the first row, on the right. */
+  .header-actions {
+    margin-left: auto;
+    gap: 12px;
+  }
+
+
+  /* ----- CONTENT ----- */
+
+  .dashboard-content {
+    width: 100%;
+    padding: 18px 12px;
+  }
+
+  .dashboard-welcome h1 {
+    font-size: 22px;
+    line-height: 1.3;
+  }
+
+  .dashboard-welcome p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* One column for statistics. */
+  .statistics-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 16px;
+  }
+
+  .dashboard-panel {
+    padding: 15px;
+  }
+
+  .dashboard-columns {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+
+  /* ----- STATUS OVERVIEW ----- */
+
+  /* Chart above the legend. */
+  .status-overview {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .status-chart {
+    width: 135px;
+    height: 135px;
+  }
+
+  .chart-center {
+    width: 94px;
+    height: 94px;
+  }
+
+  .status-legend {
+    width: 100%;
+  }
+
+
+  /* ----- TASKS TABLE ----- */
+
+  /* The table scrolls sideways inside its own box. */
+  .tasks-table-wrapper {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tasks-table {
+    min-width: 600px;
+  }
+
+
+  /* ----- PROJECT LIST ----- */
+
+  .project-list-item {
+    gap: 8px;
+  }
+
+  .project-task-count {
+    padding: 4px 7px;
+    font-size: 9px;
+  }
+
+  .project-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+}
