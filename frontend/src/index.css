@@ -1,0 +1,14 @@
+/* Removes default spacing and sets the base font. */
+:root {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* Ensures the page uses the full available width. */
+html,
+body,
+#root {
+  min-width: 100%;
+  min-height: 100%;
+}
